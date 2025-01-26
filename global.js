@@ -16,7 +16,7 @@ function $$(selector, context = document) {
 const ARE_WE_HOME = document.documentElement.classList.contains('home');
 
 let pages = [
-    { url: '/', title: 'Home' },
+    { url: '', title: 'Home' },
     { url: 'projects/', title: 'Projects' },
     { url: 'contact/', title: 'Contact'},
     { url: 'resume/', title: 'Resume'},
@@ -31,7 +31,9 @@ for (let p of pages) {
     let title = p.title;
     if (!ARE_WE_HOME && !url.startsWith('http')) {
         url = '../' + url;
-      }
+    } else {
+        url = '/portfolio'
+    }
     // nav.insertAdjacentHTML('beforeend', `<a href="${url}">${title}</a>`);
     let a = document.createElement('a');
     a.href = url;
