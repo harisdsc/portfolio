@@ -31,6 +31,8 @@ for (let p of pages) {
     let title = p.title;
     if (!ARE_WE_HOME && !url.startsWith('http')) {
         url = '../' + url;
+    } else if (p.title === 'GitHub') {
+        url = url;
     } else if (ARE_WE_HOME && url.startsWith('http')) {
         url = '/portfolio/'
     }
@@ -41,11 +43,11 @@ for (let p of pages) {
     nav.append(a);
     a.classList.toggle(
         'current',
-        a.host === location.host && a.pathname === location.pathname && 
-        a.href !== 'https://github.com/harisdsc'
+        a.host === location.host && a.pathname === location.pathname
       );
    if (a.host !== location.host) {
     a.target = "_blank"
+    a.classList.remove("current")
    } 
   }
 
