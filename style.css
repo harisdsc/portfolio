@@ -149,3 +149,8 @@ label.color-scheme {
   font-size:  80%;
   font: inherit;
 }
+
+
+section {
+  color: black;
+}
