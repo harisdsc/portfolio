@@ -31,7 +31,7 @@ for (let p of pages) {
     let title = p.title;
     if (!ARE_WE_HOME && !url.startsWith('http')) {
         url = '../' + url;
-    } else {
+    } else if (ARE_WE_HOME && url.startsWith('http')) {
         url = '/portfolio'
     }
     // nav.insertAdjacentHTML('beforeend', `<a href="${url}">${title}</a>`);
