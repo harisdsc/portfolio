@@ -70,8 +70,17 @@ if (value === 'automatic') {
 }
 }
 
+if ("colorScheme" in localStorage) {
+    const savedScheme = localStorage.colorScheme;
+    setColorScheme(savedScheme);
+    select.value = savedScheme;
+} else {
+    setColorScheme('automatic');
+}
+
 select.addEventListener('input', function (event) {
-    console.log('color scheme changed to', event.target.value);
-    setColorScheme(event.target.value);
-    localStorage.colorScheme = event.target.value
-  });
+    const selectedValue = event.target.value;
+    console.log('Color scheme changed to', selectedValue);
+    setColorScheme(selectedValue);
+    localStorage.colorScheme = selectedValue;
+});
