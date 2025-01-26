@@ -41,7 +41,8 @@ for (let p of pages) {
     nav.append(a);
     a.classList.toggle(
         'current',
-        a.host === location.host && a.pathname === location.pathname
+        a.host === location.host && a.pathname === location.pathname && 
+        a.href !== 'https://github.com/harisdsc'
       );
    if (a.host !== location.host) {
     a.target = "_blank"
