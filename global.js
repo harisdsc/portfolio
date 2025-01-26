@@ -16,7 +16,7 @@ function $$(selector, context = document) {
 const ARE_WE_HOME = document.documentElement.classList.contains('home');
 
 let pages = [
-    { url: '', title: 'Home' },
+    { url: '../', title: 'Home' },
     { url: 'projects/', title: 'Projects' },
     { url: 'contact/', title: 'Contact'},
     { url: 'resume/', title: 'Resume'},
@@ -70,8 +70,8 @@ if (value === 'automatic') {
 }
 }
 
-const systemPreference = window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light';
 select.addEventListener('input', function (event) {
     console.log('color scheme changed to', event.target.value);
     setColorScheme(event.target.value);
+    localStorage.colorScheme = event.target.value
   });
