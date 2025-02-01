@@ -88,6 +88,11 @@ div.projects {
   gap: 1em;
 }
 
+div.projects img {
+  flex: 1 1 auto;
+  max-width: 100%;
+}
+
 article {
   display: grid;
   grid-template-rows: subgrid;

@@ -1,62 +1,74 @@
 [
     {
-        "title": "Lorem ipsum dolor sit.",
-        "image": "https://vis-society.github.io/labs/2/images/empty.svg",
-        "description": "Lorem, ipsum dolor sit amet consectetur adipisicing elit. Itaque repellendus excepturi maiores repudiandae atque quos nesciunt amet debitis dicta natus, laboriosam aliquam cupiditate, harum explicabo corrupti ea odio est mollitia!"
+        "title": "Expository Visualization",
+        "image": "../images/expository.png",
+        "year": 2025,
+        "description": "Designed an expository visualization to clearly communicate the disparity between Miami and other major U.S. cities rainfall and sunshine patterns. Plotted average monthly rainfall and sunshine hours for each city and highlighted the differences between Miami and them."
     },
     {
-        "title": "Voluptas blanditiis dignissimos molestiae!",
-        "image": "https://vis-society.github.io/labs/2/images/empty.svg",
-        "description": "Provident recusandae sint quis, dolores neque delectus ullam odit cumque cupiditate voluptatum quisquam quibusdam, eos quod repellendus, sapiente unde architecto suscipit rem! Nihil aperiam ex pariatur voluptatem est tempore quam?"
+        "title": "Deceptive Visualization",
+        "image": "../images/deceptive.png",
+        "year": 2025,
+        "description": "Created two static visualizations on mouse activity and body temperature. The first visualization is an earnest representation, clearly and transparently conveying insights from the data. The second visualization is deceptive, designed to subtly mislead the viewer."
     },
     {
-        "title": "Eum rem debitis a.",
-        "image": "https://vis-society.github.io/labs/2/images/empty.svg",
-        "description": "Ullam ducimus in fuga dolor est, repellat sunt odit possimus ipsum officiis laboriosam fugit? Ea, nobis voluptatibus atque rerum corrupti vitae nulla, animi porro eaque non, accusamus vel tempore nemo."
+        "title": "Gradebook",
+        "image": "../images/gradebook.png",
+        "year": 2024,
+        "description": "Processed and analyzed student grades in a fictional data science course using Python and Pandas. Applied late penalties, score normalization, and a grade redemption policy. Conducted statistical analysis and visualized grade distributions."
     },
     {
-        "title": "Cupiditate, debitis neque! Error.",
-        "image": "https://vis-society.github.io/labs/2/images/empty.svg",
-        "description": "Ab, animi in consequatur sunt rerum beatae vitae nobis doloremque, molestiae harum, minus consequuntur. At deserunt maxime laudantium reprehenderit aliquid. Suscipit autem iusto officiis recusandae eaque voluptas delectus, illum temporibus."
+        "title": "Loan Applications",
+        "image": "../images/gradebook.png",
+        "year": 2024,
+        "description": "Analyzed LendingClub loan data to explore factors influencing interest rates and loan terms. Used data cleaning, statistical testing, and visualization to examine borrower risk, disposable income, and biases in loan approvals. Investigated Simpson’s Paradox in lending patterns."
     },
     {
-        "title": "Laudantium repellat consectetur animi.",
-        "image": "https://vis-society.github.io/labs/2/images/empty.svg",
-        "description": "Quidem consectetur aspernatur fugiat a, id consequatur fugit ut cum corrupti aliquam explicabo culpa ullam, asperiores magnam accusantium tempora, labore sunt voluptatum ducimus delectus ipsam nesciunt hic. Repellendus, dignissimos minima."
+        "title": "Loan Applications",
+        "image": "../images/loan.png",
+        "year": 2024,
+        "description": "Analyzed LendingClub loan data to explore factors influencing interest rates and loan terms. Used data cleaning, statistical testing, and visualization to examine borrower risk, disposable income, and biases in loan approvals. Investigated Simpson’s Paradox in lending patterns."
     },
     {
-        "title": "Recusandae odio ducimus necessitatibus.",
-        "image": "https://vis-society.github.io/labs/2/images/empty.svg",
-        "description": "Corrupti, modi rerum laborum nemo cumque id a et reprehenderit! Quis fugit incidunt, quos consectetur repellat dicta. Placeat, nemo enim. Expedita vel aspernatur natus minus enim nostrum et eveniet aut."
+        "title": "Language Models",
+        "image": "../images/chatgpt.png",
+        "year": 2024,
+        "description": "Developed language models to analyze and generate text using Python and Pandas. Built tokenization functions to preprocess text and trained multiple statistical models, including uniform, unigram, and N-Gram models. Implemented probability estimation techniques to compute sentence likelihoods and generate text sequences based on conditional probabilities."
     },
     {
-        "title": "Possimus illo repellat iusto.",
-        "image": "https://vis-society.github.io/labs/2/images/empty.svg",
-        "description": "Tenetur, quo sequi officia, provident, culpa quae reiciendis sapiente dolore porro libero minima excepturi inventore laboriosam necessitatibus hic perspiciatis labore esse quis maiores quidem. Molestiae aspernatur pariatur maiores laborum ipsam!"
+        "title": "League of Legends Creep Score Analysis",
+        "image": "../images/league.png",
+        "year": 2024,
+        "description": "Analyzed official League of Legends match data from Oracle’s Elixir to examine the impact of creep score per minute (CSPM) on player performance. Conducted statistical analysis, hypothesis testing, and predictive modeling to assess relationships between CSPM, gold earnings, kills, and win rate. Developed regression models to predict CSPM and evaluated model fairness across different roles."
     },
     {
-        "title": "Fugit quo excepturi rerum!",
-        "image": "https://vis-society.github.io/labs/2/images/empty.svg",
-        "description": "Ullam facere mollitia quos eos magni? Laudantium reiciendis dignissimos minus expedita debitis consequuntur doloribus eveniet omnis. Sint enim quia dolor optio dicta nobis reprehenderit quisquam maiores tenetur, illo, necessitatibus quidem."
+        "title": "",
+        "image": "../images/chatgpt.png",
+        "year": 2024,
+        "description": ""
     },
     {
-        "title": "Amet saepe optio magni?",
-        "image": "https://vis-society.github.io/labs/2/images/empty.svg",
-        "description": "Sit, quam ipsa, iste error cumque quod tempora illo facere non illum veniam quisquam pariatur. Delectus dolorem omnis nesciunt similique debitis suscipit adipisci voluptatum? Voluptatum fugiat repellendus dolorem cumque ex!"
+        "title": "",
+        "image": "../images/chatgpt.png",
+        "year": 2024,
+        "description": ""
     },
     {
-        "title": "Voluptas quidem impedit ex!",
-        "image": "https://vis-society.github.io/labs/2/images/empty.svg",
-        "description": "Dolore dolorem quasi ut voluptate, voluptatem natus sed et officiis eveniet vitae quod, aut voluptatibus fuga animi inventore quos, aperiam velit ullam molestiae cum labore beatae reiciendis quisquam! Quod, nulla?"
+        "title": "",
+        "image": "../images/chatgpt.png",
+        "year": 2024,
+        "description": ""
     },
     {
-        "title": "Quibusdam cum consectetur recusandae?",
-        "image": "https://vis-society.github.io/labs/2/images/empty.svg",
-        "description": "Itaque necessitatibus magni voluptatibus delectus reiciendis, minima nihil atque fugit veniam soluta debitis enim aperiam sapiente exercitationem dolorem? Aut consequatur sunt, magnam ad sit sequi aliquid amet eaque odit harum!"
+        "title": "",
+        "image": "../images/chatgpt.png",
+        "year": 2024,
+        "description": ""
     },
     {
-        "title": "Deleniti exercitationem consequuntur ullam.",
-        "image": "https://vis-society.github.io/labs/2/images/empty.svg",
-        "description": "Est vero rem ipsam iusto nihil incidunt fugit, eos, maxime exercitationem animi assumenda qui totam! Veritatis, id, ex quam molestiae mollitia a reiciendis, modi neque quaerat officia labore eum veniam."
+        "title": "",
+        "image": "../images/chatgpt.png",
+        "year": 2024,
+        "description": ""
     }
 ]
