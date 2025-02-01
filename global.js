@@ -125,4 +125,6 @@ export function renderProjects(projects, containerElement, headingLevel = 'h2') 
 
 // console.log(container.innerHTML);
 
-// odd
+if (1 === 1) {
+    console.log('Math works!');
+}
