@@ -42,10 +42,16 @@
         "description": "Analyzed official League of Legends match data from Oracle’s Elixir to examine the impact of creep score per minute (CSPM) on player performance. Conducted statistical analysis, hypothesis testing, and predictive modeling to assess relationships between CSPM, gold earnings, kills, and win rate. Developed regression models to predict CSPM and evaluated model fairness across different roles."
     },
     {
-        "title": "",
-        "image": "../images/chatgpt.png",
+        "title": "Image Processing",
+        "image": "../images/processing.png",
         "year": 2024,
-        "description": ""
+        "description": "Developed an object-oriented image processing framework in Python, implementing an RGB image class and processing methods such as negation, grayscale conversion, rotation, brightness adjustment, blurring, and edge detection. Utilized PIL (Pillow) and NumPy for efficient image manipulation. Designed a K-Nearest Neighbors (KNN) classifier to categorize images based on pixel similarity. "
+    },
+    {
+        "title": "CRM Client",
+        "image": "../images/erp.png",
+        "year": 2024,
+        "description": "Designed and developed a custom CRM platform with complete functionality to manage customer relationships effectively. Hosted client on AWS and managed the platform's scalability, reliability, and performance. Implemented backend using SQL and Python and frontend with HTML, CSS, and JavaScript."
     },
     {
         "title": "",
@@ -60,15 +66,9 @@
         "description": ""
     },
     {
-        "title": "",
-        "image": "../images/chatgpt.png",
-        "year": 2024,
-        "description": ""
-    },
-    {
-        "title": "",
-        "image": "../images/chatgpt.png",
-        "year": 2024,
-        "description": ""
+        "title": "Taylor Swift Lyrics Analysis",
+        "image": "../images/taylor.png",
+        "year": 2023,
+        "description": "Analyzed Taylor Swift’s discography by combining lyric and audio feature datasets. Conducted exploratory data analysis on song characteristics, sentiment, and popularity. Built a song recommender using similarity metrics and developed a lyric search tool to retrieve contextual phrases."
     }
 ]
