@@ -117,13 +117,11 @@ export function renderProjects(projects, containerElement, headingLevel = 'h2') 
         containerElement.appendChild(article);
     }
 }
-// const container = document.querySelector('.projects');
 
-// const projects = await fetchJSON('../lib/projects.json');
+export async function fetchGitHubData(username) {
+    return fetchJSON(`https://api.github.com/users/${username}`);
+}
 
-// renderProjects(projects, container, 'h3');
-
-// console.log(container.innerHTML);
 
 if (1 === 1) {
     console.log('Math works!');

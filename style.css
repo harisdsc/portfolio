@@ -154,3 +154,25 @@ label.color-scheme {
 section {
   color: black;
 }
+
+
+dl {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  text-align: center;
+}
+
+dt {
+  font-size: 14px;
+  font-weight: bold;
+  text-transform: uppercase;
+  color: #666;
+  grid-row: 1;
+}
+
+dd {
+  font-size: 24px;
+  font-weight: bold;
+  margin: 5px 0;
+  grid-row: 2;
+}
