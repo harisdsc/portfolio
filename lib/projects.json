@@ -48,27 +48,27 @@
         "description": "Developed an object-oriented image processing framework in Python, implementing an RGB image class and processing methods such as negation, grayscale conversion, rotation, brightness adjustment, blurring, and edge detection. Utilized PIL (Pillow) and NumPy for efficient image manipulation. Designed a K-Nearest Neighbors (KNN) classifier to categorize images based on pixel similarity. "
     },
     {
+        "title": "Analysis of Data Scientist Programming Language Preferences",
+        "image": "../images/languages.png",
+        "year": 2024,
+        "description": "Analyzed Kaggle survey data to explore programming language preferences among data scientists. Conducted statistical analysis on language usage by age, education, and experience levels. Developed a classification model to predict language recommendations for aspiring data scientists based on demographic and professional profiles."
+    },
+    {
         "title": "CRM Client",
         "image": "../images/erp.png",
         "year": 2024,
         "description": "Designed and developed a custom CRM platform with complete functionality to manage customer relationships effectively. Hosted client on AWS and managed the platform's scalability, reliability, and performance. Implemented backend using SQL and Python and frontend with HTML, CSS, and JavaScript."
     },
     {
-        "title": "",
-        "image": "../images/chatgpt.png",
-        "year": 2024,
-        "description": ""
-    },
-    {
-        "title": "",
-        "image": "../images/chatgpt.png",
-        "year": 2024,
-        "description": ""
-    },
-    {
         "title": "Taylor Swift Lyrics Analysis",
         "image": "../images/taylor.png",
-        "year": 2023,
+        "year": 2024,
         "description": "Analyzed Taylor Swift’s discography by combining lyric and audio feature datasets. Conducted exploratory data analysis on song characteristics, sentiment, and popularity. Built a song recommender using similarity metrics and developed a lyric search tool to retrieve contextual phrases."
+    },
+    {
+        "title": "WIP",
+        "image": "https://vis-society.github.io/labs/2/images/empty.svg",
+        "year": 2025,
+        "description": "Project coming soon."
     }
 ]
