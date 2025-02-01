@@ -1,25 +1,25 @@
 [
     {
         "title": "Expository Visualization",
-        "image": "../images/expository.png",
+        "image": "https://github.com/harisdsc/portfolio/blob/main/images/expository.png?raw=true",
         "year": 2025,
         "description": "Designed an expository visualization to clearly communicate the disparity between Miami and other major U.S. cities rainfall and sunshine patterns. Plotted average monthly rainfall and sunshine hours for each city and highlighted the differences between Miami and them."
     },
     {
         "title": "Deceptive Visualization",
-        "image": "../images/deceptive.png",
+        "image": "https://github.com/harisdsc/portfolio/blob/main/images/deceptive.png?raw=true",
         "year": 2025,
         "description": "Created two static visualizations on mouse activity and body temperature. The first visualization is an earnest representation, clearly and transparently conveying insights from the data. The second visualization is deceptive, designed to subtly mislead the viewer."
     },
     {
         "title": "Gradebook",
-        "image": "../images/gradebook.png",
+        "image": "https://github.com/harisdsc/portfolio/blob/main/images/gradebook.png?raw=true",
         "year": 2024,
         "description": "Processed and analyzed student grades in a fictional data science course using Python and Pandas. Applied late penalties, score normalization, and a grade redemption policy. Conducted statistical analysis and visualized grade distributions."
     },
     {
         "title": "Loan Applications",
-        "image": "../images/gradebook.png",
+        "image": "https://github.com/harisdsc/portfolio/blob/main/images/loan.png?raw=true",
         "year": 2024,
         "description": "Analyzed LendingClub loan data to explore factors influencing interest rates and loan terms. Used data cleaning, statistical testing, and visualization to examine borrower risk, disposable income, and biases in loan approvals. Investigated Simpson’s Paradox in lending patterns."
     },
@@ -31,37 +31,37 @@
     },
     {
         "title": "Language Models",
-        "image": "../images/chatgpt.png",
+        "image": "https://github.com/harisdsc/portfolio/blob/main/images/chatgpt.png?raw=true",
         "year": 2024,
         "description": "Developed language models to analyze and generate text using Python and Pandas. Built tokenization functions to preprocess text and trained multiple statistical models, including uniform, unigram, and N-Gram models. Implemented probability estimation techniques to compute sentence likelihoods and generate text sequences based on conditional probabilities."
     },
     {
         "title": "League of Legends Creep Score Analysis",
-        "image": "../images/league.png",
+        "image": "https://github.com/harisdsc/portfolio/blob/main/images/league.png?raw=true",
         "year": 2024,
         "description": "Analyzed official League of Legends match data from Oracle’s Elixir to examine the impact of creep score per minute (CSPM) on player performance. Conducted statistical analysis, hypothesis testing, and predictive modeling to assess relationships between CSPM, gold earnings, kills, and win rate. Developed regression models to predict CSPM and evaluated model fairness across different roles."
     },
     {
         "title": "Image Processing",
-        "image": "../images/processing.png",
+        "image": "https://github.com/harisdsc/portfolio/blob/main/images/processing.png?raw=true",
         "year": 2024,
         "description": "Developed an object-oriented image processing framework in Python, implementing an RGB image class and processing methods such as negation, grayscale conversion, rotation, brightness adjustment, blurring, and edge detection. Utilized PIL (Pillow) and NumPy for efficient image manipulation. Designed a K-Nearest Neighbors (KNN) classifier to categorize images based on pixel similarity. "
     },
     {
         "title": "Analysis of Data Scientist Programming Language Preferences",
-        "image": "../images/languages.png",
+        "image": "https://github.com/harisdsc/portfolio/blob/main/images/languages.png?raw=true",
         "year": 2024,
         "description": "Analyzed Kaggle survey data to explore programming language preferences among data scientists. Conducted statistical analysis on language usage by age, education, and experience levels. Developed a classification model to predict language recommendations for aspiring data scientists based on demographic and professional profiles."
     },
     {
         "title": "CRM Client",
-        "image": "../images/erp.png",
+        "image": "https://github.com/harisdsc/portfolio/blob/main/images/erp.png?raw=true",
         "year": 2024,
         "description": "Designed and developed a custom CRM platform with complete functionality to manage customer relationships effectively. Hosted client on AWS and managed the platform's scalability, reliability, and performance. Implemented backend using SQL and Python and frontend with HTML, CSS, and JavaScript."
     },
     {
         "title": "Taylor Swift Lyrics Analysis",
-        "image": "../images/taylor.png",
+        "image": "https://github.com/harisdsc/portfolio/blob/main/images/taylor.png?raw=true",
         "year": 2024,
         "description": "Analyzed Taylor Swift’s discography by combining lyric and audio feature datasets. Conducted exploratory data analysis on song characteristics, sentiment, and popularity. Built a song recommender using similarity metrics and developed a lyric search tool to retrieve contextual phrases."
     },
