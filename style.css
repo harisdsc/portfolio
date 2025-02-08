@@ -181,3 +181,61 @@ dd {
   margin: 5px 0;
   grid-row: 2;
 }
+
+#projects-pie-plot {
+  max-width: 20em;
+  margin-block: 2em;
+
+  overflow: visible;
+}
+
+.legend {
+  border: 1px solid #ccc;
+  padding: 1em;
+  border-radius: 4px;
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(9em, 1fr));
+  flex: 1;
+}
+
+.legend li {
+  display: flex;
+  align-items: center;
+  gap: 0.5em;
+}
+
+.swatch {
+  width: 1em;
+  height: 1em;
+  border-radius: 3px;
+  background-color: var(--color);
+  display: inline-block;
+}
+
+
+.container {
+  display: flex;
+  align-items: flex-start;
+  gap: 2em;
+  margin-block: 2em;
+}
+
+&:has(path:hover) {
+  path:not(:hover) {
+    opacity: 0.5;
+  }
+}
+
+path {
+  transition: 300ms;
+  cursor: pointer;
+}
+
+
+.selected {
+  --color: oklch(60% 45% 0) !important;
+
+  &:is(path) {
+    fill: var(--color);
+  }
+}
