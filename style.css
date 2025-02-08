@@ -239,3 +239,10 @@ path {
     fill: var(--color);
   }
 }
+
+/* test*/
+
+
+.nothing {
+  display: none;
+}
