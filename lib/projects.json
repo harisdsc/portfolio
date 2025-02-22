@@ -1,5 +1,12 @@
 [
     {
+        "title": "Geospatial Visualizations",
+        "image": "https://github.com/harisdsc/portfolio/blob/main/images/bikes.png?raw=true",
+        "year": 2025,
+        "description": "Built an immersive, interactive map visualization of bike traffic in the Boston area during different times of the day.",
+        "url" : "https://harisdsc.github.io/bikewatching/"
+    },  
+    {
         "title": "Expository Visualization",
         "image": "https://github.com/harisdsc/portfolio/blob/main/images/expository.png?raw=true",
         "year": 2025,

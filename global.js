@@ -115,6 +115,7 @@ export function renderProjects(projects, containerElement, headingLevel = 'h2') 
             <div>
                 <p>${project.description}</p>
                 <p>c. ${project.year}</p>
+                <p><a href="${project.url}">View Project</a></p>
             </div>
         `;
         containerElement.appendChild(article);
