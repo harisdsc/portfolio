@@ -13,7 +13,6 @@ async function loadData() {
     }));
     // processCommits();
     displayStats();
-    console.log(commits);
 }
 
 document.addEventListener('DOMContentLoaded', async () => {
@@ -123,16 +122,17 @@ function createScatterplot() {
   .style('fill-opacity', 0.7) // Add transparency for overlapping dots
   .on('mouseenter', (event, commit) => {
     d3.select(event.currentTarget).style('fill-opacity', 1); // Full opacity on hover
+    d3.select(event.currentTarget).classed('selected', true);
     updateTooltipContent(commit);
     updateTooltipVisibility(true);
     updateTooltipPosition(event);
   })
   .on('mouseleave', () => {
     d3.select(event.currentTarget).style('fill-opacity', 0.7); // Restore transparency
+    d3.select(event.currentTarget).classed('selected', false);
     updateTooltipContent({});
     updateTooltipVisibility(false);
   });
-  
   
   const usableArea = {
     top: margin.top,
@@ -230,6 +230,7 @@ function brushed(event) {
         return x >= min.x && x <= max.x && y >= min.y && y <= max.y;
       });
   
+  console.log(selectedCommits);
 
   updateSelection();
   updateSelectionCount();
@@ -294,3 +295,30 @@ function updateLanguageBreakdown() {
 
   return breakdown;
 }
+
+let timeFilter = -1;
+let commitProgress = 100;
+let timeScale = d3.scaleTime([d3.min(commits, d => d.datetime), d3.max(commits, d => d.datetime)], [0, 100]);
+let commitMaxTime = timeScale.invert(commitProgress);
+
+
+const timeSlider = document.getElementById('time-slider');
+const selectedTime = document.getElementById('selected-time');
+const anyTimeLabel = document.getElementById('any-time');
+
+function updateTimeDisplay() {
+  timeFilter = Number(timeSlider.value);  // Get slider value
+
+  if (timeFilter === -1) {
+    selectedTime.textContent = '';  // Clear time display
+    anyTimeLabel.style.display = 'block';  // Show "(any time)"
+  } else {
+    selectedTime.textContent = timeFilter;  // Display formatted time
+    anyTimeLabel.style.display = 'none';  // Hide "(any time)"
+  }
+
+}
+
+timeSlider.addEventListener('input', () => {
+  updateTimeDisplay();
+});
