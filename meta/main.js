@@ -9,7 +9,8 @@ async function loadData() {
       date: new Date(row.date + 'T00:00' + row.timezone),
       datetime: new Date(row.datetime),
     }));
-    processCommits();
+    // processCommits();
+    displayStats();
     console.log(commits);
 }
 
@@ -48,4 +49,34 @@ function processCommits() {
     });
 }
 
+function displayStats() {
+  // Process commits first
+  processCommits();
+
+  // Create the dl element
+  const dl = d3.select('#stats').append('dl').attr('class', 'stats');
+
+  // Add total LOC
+  dl.append('dt').html('Total <abbr title="Lines of code">LOC</abbr>');
+  dl.append('dd').text(data.length);
+
+  // Add total commits
+  dl.append('dt').text('Total commits');
+  dl.append('dd').text(commits.length);
+
+  // Add number of files
+  const fileCount = new Set(data.map(d => d.file)).size;
+  dl.append('dt').text('Files');
+  dl.append('dd').text(fileCount);
+
+  // Add max lines per commit
+  const maxLinesPerCommit = d3.max(commits, c => c.totalLines);
+  dl.append('dt').text('Max lines');
+  dl.append('dd').text(maxLinesPerCommit);
+
+  // Add more stats as needed...
+}
+
+const width = 1000;
+const height = 600;
 
