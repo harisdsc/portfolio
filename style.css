@@ -261,7 +261,7 @@ dl.tooltip {
   padding: 8px 12px;
   backdrop-filter: blur(5px);
   transition: opacity 0.3s ease, visibility 0.3s ease;
-    z-index: 1000;
+  z-index: 1000;
 
 }
 
