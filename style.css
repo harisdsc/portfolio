@@ -302,3 +302,11 @@ circle.selected {
   fill: #ff6b6b;
 }
 
+#time-filter {
+  margin-bottom: 10px;
+}
+
+#time-slider {
+  width: 600px; /* Adjust width as desired */
+  margin-left: 10px;
+}

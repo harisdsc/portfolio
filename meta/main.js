@@ -17,8 +17,17 @@ async function loadData() {
 
 document.addEventListener('DOMContentLoaded', async () => {
   await loadData();
+  processCommits();
+  
+  // Initialize the scale for slider
+  timeScale = d3.scaleTime()
+    .domain(d3.extent(commits, d => d.datetime))
+    .range([0, 100]);
+    
+  commitMaxTime = timeScale.invert(commitProgress);
   await createScatterplot();
   await brushSelector();
+  setupSlider();  // Add slider setup
 });
 
 
@@ -218,6 +227,7 @@ function brushSelector() {
 let brushSelection = null;
 
 function brushed(event) {
+  console.log(selectedCommits);
   brushSelection = event.selection;
   selectedCommits = !brushSelection
     ? []
@@ -296,29 +306,59 @@ function updateLanguageBreakdown() {
   return breakdown;
 }
 
-let timeFilter = -1;
+// let timeFilter = -1;
+
+// let commitProgress = 100;
+// let timeScale = d3.scaleTime([d3.min(commits, d => d.datetime), 
+//   d3.max(commits, d => d.datetime)], [0, 100]);
+// let commitMaxTime = timeScale.invert(commitProgress);
+
+// console.log(commitMaxTime);
+
+// const timeSlider = document.getElementById('time-slider');
+// const selectedTime = document.getElementById('selected-time');
+// const anyTimeLabel = document.getElementById('any-time');
+
+// function updateTimeDisplay() {
+//   timeFilter = Number(timeSlider.value);  // Get slider value
+
+//   if (timeFilter === -1) {
+//     selectedTime.textContent = '';  // Clear time display
+//     anyTimeLabel.style.display = 'block';  // Show "(any time)"
+//   } else {
+//     selectedTime.textContent = timeFilter;  // Display formatted time
+//     anyTimeLabel.style.display = 'none';  // Hide "(any time)"
+//   }
+
+// }
+
+// timeSlider.addEventListener('input', () => {
+//   updateTimeDisplay();
+// });
+
+// console.log(commits);
+
 let commitProgress = 100;
-let timeScale = d3.scaleTime([d3.min(commits, d => d.datetime), d3.max(commits, d => d.datetime)], [0, 100]);
-let commitMaxTime = timeScale.invert(commitProgress);
+let timeScale, commitMaxTime;
 
+function setupSlider() {
+  const slider = document.getElementById('time-slider');
+  const selectedTimeElement = document.getElementById('selected-time');
 
-const timeSlider = document.getElementById('time-slider');
-const selectedTime = document.getElementById('selected-time');
-const anyTimeLabel = document.getElementById('any-time');
+  selectedTimeElement.textContent = "(All commits)";
 
-function updateTimeDisplay() {
-  timeFilter = Number(timeSlider.value);  // Get slider value
+  slider.addEventListener('input', () => {
+    commitProgress = +slider.value;
 
-  if (timeFilter === -1) {
-    selectedTime.textContent = '';  // Clear time display
-    anyTimeLabel.style.display = 'block';  // Show "(any time)"
-  } else {
-    selectedTime.textContent = timeFilter;  // Display formatted time
-    anyTimeLabel.style.display = 'none';  // Hide "(any time)"
-  }
-
+    if (commitProgress === 100) {
+      selectedTimeElement.textContent = "All commits";
+    } else {
+      commitMaxTime = timeScale.invert(commitProgress);
+      selectedTimeElement.textContent = commitMaxTime.toLocaleString('en', {
+        dateStyle: 'long',
+        timeStyle: 'short'
+      });
+    }
+  });
 }
 
-timeSlider.addEventListener('input', () => {
-  updateTimeDisplay();
-});
