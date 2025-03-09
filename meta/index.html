@@ -16,36 +16,51 @@
     <div id="stats"></div>
     <br>
     <h2>Commits by Time of Day</h2>
-    <div id="time-filter" style="display: flex; align-items: baseline;">
+    <!-- <div id="time-filter" style="display: flex; align-items: baseline;">
         <label>
           Show commits until:
           <input type="range" id="time-slider" min="0" max="100" value="100">
         </label>
         <time id="selected-time" style="margin-left: auto;"></time>
-      </div>
-      <dl class="files">
-        <!-- we want the following structure for each file-->
-        <div>
-          <dt>
-            <code></code>
-          </dt>
-          <dd>
-            <div class="line"></div>
-          </dd>
-        </div>
-      </dl>
-    <div id="chart"></div>
-    <dl id="commit-tooltip" class="info tooltip">
-        <dt>Commit</dt>
-        <dd>
-          <a href="" id="commit-link" target="_blank"></a>
-        </dd>
+      </div> -->
       
-        <dt>Date</dt>
-        <dd id="commit-date"></dd>
-    </dl>
-    <p id="selection-count">No commits selected</p>
+      <div id="scrollytelling">
+        <div id="scroll-container">
+            <div id="spacer"></div>
+            <div id="items-container"></div>
+        </div>
+        <!-- our old scatterplot div -->
+        <div id="chart"></div>
+    </div>
+    <p id="selection-count"></p>
     <dl id="language-breakdown" class="stats"></dl>
+  <h2>File History</h2>
+  <dl id="commit-tooltip" class="info tooltip">
+      <dt>Commit</dt>
+      <dd>
+        <a href="" id="commit-link" target="_blank"></a>
+      </dd>
+      <dt>Date</dt>
+      <dd id="commit-date"></dd>
+  </dl>
+    <div id="file-scrollytelling">
+        <div id="file-scroll-container">
+            <div id="file-spacer"></div>
+            <div id="file-items-container"></div>
+        </div>
+        <div class="file-chart">
+          <dl class="files">
+            <div>
+              <dt>
+                <code></code>
+              </dt>
+              <dd>
+                <div class="line"></div>
+              </dd>
+            </div>
+          </dl>
+          </div>
+    </div>
   
 </body>
 </html>

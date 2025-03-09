@@ -7,6 +7,34 @@ let xScale, yScale;
 let commitProgress = 100;
 let timeScale, commitMaxTime;
 
+
+let NUM_ITEMS; // Ideally, let this value be the length of your commit history
+let ITEM_HEIGHT = 110; // Feel free to change
+let VISIBLE_COUNT = 10; // Feel free to change as well
+let totalHeight = (NUM_ITEMS - 1) * ITEM_HEIGHT;
+
+const scrollContainer = d3.select('#scroll-container');
+const itemsContainer = d3.select('#items-container');
+const spacer = d3.select('#spacer');
+spacer.style('height', `${totalHeight}px`);
+scrollContainer.on('scroll', () => {
+  const scrollTop = scrollContainer.property('scrollTop');
+  let startIndex = Math.floor(scrollTop / ITEM_HEIGHT);
+  startIndex = Math.max(0, Math.min(startIndex, commits.length - VISIBLE_COUNT));
+  renderItems(startIndex);
+});
+
+const fileScrollContainer = d3.select('#file-scroll-container');
+const fileItemsContainer = d3.select('#file-items-container');
+const fileSpacer = d3.select('#file-spacer');
+fileSpacer.style('height', `${totalHeight}px`);
+fileScrollContainer.on('scroll', () => {
+  const scrollTop = fileScrollContainer.property('scrollTop');
+  let startIndex = Math.floor(scrollTop / ITEM_HEIGHT);
+  startIndex = Math.max(0, Math.min(startIndex, commits.length - VISIBLE_COUNT));
+  renderFiles(startIndex);
+});
+
 async function loadData() {
   data = await d3.csv('loc.csv', (row) => ({
     ...row,
@@ -19,21 +47,22 @@ async function loadData() {
 
   processCommits();
   filteredCommits = commits;
-  updateFiles(filteredCommits);
+  // displayCommitFiles(filteredCommits);
   displayStats(filteredCommits);
 }
 
 document.addEventListener('DOMContentLoaded', async () => {
   await loadData();
-  
+  NUM_ITEMS = commits.length;
+  renderItems(0);
+  renderFiles(0);
   timeScale = d3.scaleTime()
     .domain(d3.extent(commits, d => d.datetime))
     .range([0, 100]);
   commitMaxTime = timeScale.invert(commitProgress);
-
   updateScatterplot(filteredCommits);
   brushSelector();
-  updateTimeDisplay();
+  // updateTimeDisplay();
 });
 
 
@@ -254,7 +283,6 @@ function updateSelection() {
   d3.selectAll('circle')
     .classed('selected', (d) => selectedCommits.includes(d))
     .style('fill', (d) => selectedCommits.includes(d) ? '#ff6b6b' : 'steelblue')
-    console.log(selectedCommits);
   displayStats(selectedCommits);
 }
 
@@ -295,54 +323,51 @@ function updateLanguageBreakdown() {
   return breakdown;
 }
 
-function updateTimeDisplay() {
-  const slider = document.getElementById('time-slider');
-  const selectedTime = document.getElementById('selected-time');
+// function updateTimeDisplay() {
+//   const slider = document.getElementById('time-slider');
+//   const selectedTime = document.getElementById('selected-time');
 
-  if (commitProgress === 100) {
-    selectedTime.textContent = "(All commits)";
-  } else {
-    selectedTime.textContent = timeScale.invert(commitProgress).toLocaleString('en', {
-      dateStyle: 'long',
-      timeStyle: 'short'
-    });
-  }
+//   if (commitProgress === 100) {
+//     selectedTime.textContent = "(All commits)";
+//   } else {
+//     selectedTime.textContent = timeScale.invert(commitProgress).toLocaleString('en', {
+//       dateStyle: 'long',
+//       timeStyle: 'short'
+//     });
+//   }
 
-  slider.addEventListener('input', () => {
-    commitProgress = Number(slider.value);
+//   slider.addEventListener('input', () => {
+//     commitProgress = Number(slider.value);
 
-    if (commitProgress === 100) {
-      selectedTime.textContent = "(All commits)";
-    } else {
-      commitMaxTime = timeScale.invert(commitProgress);
-      selectedTime.textContent = commitMaxTime.toLocaleString('en', {
-        dateStyle: 'long',
-        timeStyle: 'short'
-      });
-    }
+//     if (commitProgress === 100) {
+//       selectedTime.textContent = "(All commits)";
+//     } else {
+//       commitMaxTime = timeScale.invert(commitProgress);
+//       selectedTime.textContent = commitMaxTime.toLocaleString('en', {
+//         dateStyle: 'long',
+//         timeStyle: 'short'
+//       });
+//     }
 
-    filterCommitsByTime();
-    updateFiles(filteredCommits);
-    updateScatterplot(filteredCommits);
-    brushSelector();
-    displayStats(filteredCommits);
-  });
-}
+//     filterCommitsByTime();
+//     displayCommitFiles(filteredCommits);
+//     updateScatterplot(filteredCommits);
+//     brushSelector();
+//     displayStats(filteredCommits);
+//   });
+// }
 
-let fileTypeColors = d3.scaleOrdinal(d3.schemeTableau10);
 
-function updateFiles(commits) {
+function displayCommitFiles(commits) {
   let lines = commits.flatMap((d) => d.lines);
   let files = d3
-    .groups(lines, (d) => d.file)
-    .map(([name, lines]) => {
-      return { name, lines };
-    });
+  .groups(lines, (d) => d.file)
+  .map(([name, lines]) => {
+    return { name, lines };
+  });
   
+  let fileTypeColors = d3.scaleOrdinal(d3.schemeTableau10);
   files = d3.sort(files, (d) => -d.lines.length);
-
-  console.log(files);
-
   d3.select('.files').selectAll('div').remove();
   let filesContainer = d3.select('.files').selectAll('div').data(files).enter().append('div');
 
@@ -360,6 +385,71 @@ function updateFiles(commits) {
     .style('background', (d) => fileTypeColors(d.type));
 }
 
+function renderItems(startIndex) {
+  itemsContainer.selectAll('div').remove();
+  
+  const endIndex = Math.min(startIndex + VISIBLE_COUNT, commits.length);
+  let newCommitSlice = commits.slice(startIndex, endIndex);
+  
+  selectedCommits = [];
+  if (startIndex === 0) {
+    displayStats(commits);
+  } else {
+    displayStats(newCommitSlice);
+  }
+  
+  updateScatterplot(newCommitSlice);
+  updateSelectionCount();
+  updateLanguageBreakdown();
+  // displayCommitFiles(newCommitSlice);
+  
+  itemsContainer.selectAll('div')
+    .data(newCommitSlice)
+    .enter()
+    .append('div')
+    .attr('class', 'item')
+    .html((commit, index) => `
+      <p>
+        On <b>${commit.datetime.toLocaleString("en", { dateStyle: "full", timeStyle: "short" })}</b>, I made
+        <a href="${commit.url}" target="_blank">
+          ${startIndex + index > 0 ? 'another glorious commit' : 'my first commit, and it was glorious'}
+        </a>. 
+        I edited ${commit.totalLines} lines across 
+        ${d3.rollups(commit.lines, D => D.length, d => d.file).length} files. 
+        Then I looked over all I had made, and I saw that it was very good.
+      </p>
+    `)
+    .style('position', 'absolute')
+    .style('top', (_, idx) => `${(startIndex + idx) * ITEM_HEIGHT}px`); // fix here
+  
+  brushSelector();
+}
 
+function renderFiles(startIndex) {
+  fileItemsContainer.selectAll('div').remove();
+  
+  const endIndex = Math.min(startIndex + VISIBLE_COUNT, commits.length);
+  let newCommitSlice = commits.slice(startIndex, endIndex);
+  
+  displayCommitFiles(newCommitSlice);
+  
+  fileItemsContainer.selectAll('div')
+    .data(newCommitSlice)
+    .enter()
+    .append('div')
+    .attr('class', 'item')
+    .html((commit, index) => `
+      <p>
+        On <b>${commit.datetime.toLocaleString("en", { dateStyle: "full", timeStyle: "short" })}</b>, I made
+        <a href="${commit.url}" target="_blank">
+          ${startIndex + index > 0 ? 'another glorious commit' : 'my first commit, and it was glorious'}
+        </a>. 
+        I edited ${commit.totalLines} lines across 
+        ${d3.rollups(commit.lines, D => D.length, d => d.file).length} files. 
+        Then I looked over all I had made, and I saw that it was very good.
+      </p>
+    `)
+    .style('position', 'absolute')
+    .style('top', (_, idx) => `${(startIndex + idx) * ITEM_HEIGHT}px`); // fix here
 
-
+}
