@@ -362,90 +362,87 @@ circle.selected {
   padding-bottom: 0.6em;
   margin-left: 0;
 }
-
-
-#scrollytelling {
+/* Scrollytelling Layout Components */
+#scrollytelling, #file-scrollytelling {
   grid-column: 1 / -1;
   display: grid;
-  grid-template-columns: subgrid;
+  grid-template-columns: minmax(300px, 1fr) minmax(300px, 1fr);
+  gap: 1.5rem;
+  margin: 2rem 0;
 }
 
-/* feel free to play with this to make your scrolly more seemless with your plot */
+/* Scroll Containers */
+#scroll-container, #file-scroll-container {
+  position: relative;
+  width: 100%;
+  border-radius: 8px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+  transition: box-shadow 0.3s ease;
+  overflow-y: auto;
+  scrollbar-width: thin;
+  scrollbar-color: var(--color-accent) #f0f0f0;
+}
+
 #scroll-container {
-  grid-column: 1;
-  position: relative;
-  width: 95%;
   height: 350px;
-  overflow-y: scroll;
-  border: 1px solid #ccc;
   margin-bottom: 50px;
-}
-
-#chart {
-  grid-column: 2;
-}
-
-#spacer {
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  background: none; /* transparent */
-  pointer-events: none;
-}
-
-#items-container {
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-}
-
-.item {
-  height: 110px;
-  box-sizing: border-box;
-  border-bottom: 2px solid #eee;
-}
-
-#file-scrollytelling {
-  grid-column: 1 / -1;
-  display: grid;
-  grid-template-columns: subgrid;
-}
-
-.file-chart {
-  grid-column: 2;
-  position: relative;
 }
 
 #file-scroll-container {
-  grid-column: 1;
-  position: relative;
-  width: 95%;
   height: 750px;
-  overflow-y: scroll;
-  border: 1px solid #ccc;
   margin-bottom: 50px;
 }
 
-#file-spacer {
+#scroll-container::-webkit-scrollbar, #file-scroll-container::-webkit-scrollbar {
+  width: 8px;
+}
+
+#scroll-container::-webkit-scrollbar-track, #file-scroll-container::-webkit-scrollbar-track {
+  background: #f0f0f0;
+  border-radius: 10px;
+}
+
+#scroll-container::-webkit-scrollbar-thumb, #file-scroll-container::-webkit-scrollbar-thumb {
+  background: var(--color-accent);
+  border-radius: 10px;
+}
+
+#scroll-container:hover, #file-scroll-container:hover {
+  box-shadow: 0 6px 16px rgba(0, 0, 0, 0.12);
+}
+
+/* Chart Positioning */
+#chart, .file-chart {
+  position: sticky;
+  top: 2rem;
+  align-self: flex-start;
+  transition: transform 0.3s ease;
+}
+
+#spacer, #file-spacer,
+#items-container, #file-items-container {
   position: absolute;
   top: 0;
   left: 0;
   width: 100%;
-  background: none; /* transparent */
+}
+
+#spacer, #file-spacer {
+  background: none;
   pointer-events: none;
 }
 
-#file-items-container {
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
+/* Scroll Items */
+.item, .file-item {
+  padding: 1.5rem;
+  height: auto;
+  min-height: 110px;
+  box-sizing: border-box;
+  transition: background-color 0.3s ease, transform 0.2s ease;
 }
 
-.file-item {
-  height: 110px;
-  box-sizing: border-box;
-  border-bottom: 2px solid #eee;
+.item.active, .file-item.active {
+  background-color: rgba(0, 0, 0, 0.03);
+  border-left: 4px solid var(--color-accent);
+  padding-left: calc(1.5rem - 4px);
 }
